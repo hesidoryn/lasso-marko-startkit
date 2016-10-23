@@ -1,0 +1,12 @@
+node_modules
+
+*.marko.js
+
+.idea/*
+
+.DS_Store
+
+/.cache
+/static
+/npm-debug.log
+

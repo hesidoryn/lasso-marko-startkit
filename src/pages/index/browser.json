@@ -1,0 +1,7 @@
+{
+  "dependencies": [
+    "src/layouts/base",
+    "require-run: ./client.js",
+    "./style.less"
+  ]
+}

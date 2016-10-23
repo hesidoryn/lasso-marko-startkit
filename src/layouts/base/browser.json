@@ -1,0 +1,6 @@
+{
+  "dependencies": [
+    // Normilize.css (referenced from node_modules)
+    "normalize.css/normalize.css"
+  ]
+}

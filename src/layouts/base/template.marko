@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><layout-placeholder name="title">Lasso + Marko Startkit</layout-placeholder></title>
+
+  <!-- Favicon -->
+  <lasso-resource path="./favicon.ico" var="favicon"/>
+  <link rel="shortcut icon" href="${favicon.url}">
+
+  <!-- Optimizer's placeholder for scripts and stylesheets -->
+  <lasso-head/>
+
+</head>
+<body>
+  <layout-placeholder name="body" />
+
+  <lasso-body/>
+  <browser-refresh enabled="true" />
+</body>
+</html>
+
+
+<!--
+The HTML comments will be removed by Marko and will not show up in the rendered HTML.
+If you want to have rendered comments, use <html-comment />:
+
+  <html-comment>This is a comment that *will* be rendered</html-comment>
+
+-->
