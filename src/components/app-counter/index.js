@@ -22,6 +22,14 @@ module.exports = require('marko-widgets').defineComponent({
 
   inc: function() {
     this.setState('value', this.state.value + 1);
+  },
+
+  change: function() {
+    var input = this.getEl('input');
+    var val = parseInt(input.value, 10) || this.state.value;
+
+    this.setState('value', val);
+    this.setStateDirty('value');  // force update, even if state is the same
   }
 });
 
