@@ -1,6 +1,9 @@
 {
   "dependencies": [
     "src/layouts/base",
+
+    "require: src/components/app-counter",
+
     "require-run: ./client.js",
     "./style.less"
   ]
