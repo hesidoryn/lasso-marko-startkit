@@ -1,5 +1,8 @@
+.app-section-wrapper {
+  margin-bottom: 16px;
+}
 
-.app-friends {
+.app-section {
   position: relative;
 
   @keyframes fadeIn {
@@ -7,16 +10,16 @@
     100% { top: 0;     opacity: 1;  }
   }
 
-  &__open {
+  &--open {
     animation: fadeIn 0.4s;
   }
 
-  &__closed {
+  &--closed {
     display: none;
   }
 }
 
-.app-friends-show-more {
+.app-section-show-more {
   @color: #555555;
   font-size: 16px;
 

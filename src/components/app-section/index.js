@@ -5,7 +5,9 @@ module.exports = require('marko-widgets').defineComponent({
 
   getInitialState: function(input) {
     return {
-      open: input.open
+      open: input.open === undefined ? false : input.open,
+      textShow: input.textShow || "Show",
+      textHide: input.textHide || "Hide"
     };
   },
 
@@ -13,8 +15,8 @@ module.exports = require('marko-widgets').defineComponent({
     return {
       open: state.open,
       className: className(state.open),
-      linkTitle: state.open ? "Hide" : "And friends",
-      linkIndicator: state.open ? "&uarr;" : "&darr;"
+      linkTitle: state.open ? state.textHide : state.textShow,
+      linkIndicator: state.open ? "&darr;" : "&rarr;"
     };
   },
 
@@ -30,12 +32,12 @@ module.exports = require('marko-widgets').defineComponent({
  * @returns {string}
  */
 function className(open) {
-  var className = 'app-friends';
+  var className = 'app-section';
 
   if (open) {
-    className += ' app-friends__open';
+    className += ' app-section--open';
   } else {
-    className += ' app-friends__closed';
+    className += ' app-section--closed';
   }
 
   return className;
