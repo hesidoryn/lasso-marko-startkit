@@ -3,6 +3,7 @@
     "src/layouts/base",
 
     "require: src/components/app-counter",
+    "require: src/components/app-friends",
 
     "require-run: ./client.js",
     "./style.less"

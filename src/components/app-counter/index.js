@@ -5,7 +5,7 @@ module.exports = require('marko-widgets').defineComponent({
 
   getInitialState: function(input) {
     return {
-      value: input.value || 0
+      value: asInt(input.value, 0)
     };
   },
 
@@ -24,17 +24,17 @@ module.exports = require('marko-widgets').defineComponent({
     this.setState('value', this.state.value + 1);
   },
 
-  change: function() {
-    var input = this.getEl('input');
-    var val = parseInt(input.value, 10) || this.state.value;
-
-    this.setState('value', val);
-    this.setStateDirty('value');  // force update, even if state is the same
+  change: function(e, el) {
+    this.setStateDirty('value', asInt(el.value, this.state.value));  // force update, even if state is the same
   }
 });
 
 
-// Helper function
+/**
+ * Build class name from value
+ * @param value
+ * @returns {string}
+ */
 function className(value) {
   var className = 'number-spinner';
 
@@ -45,4 +45,21 @@ function className(value) {
   }
 
   return className;
+}
+
+/**
+ * Converts to integer
+ * @param value Value to parse as decimal integer
+ * @param defaultValue Value to use as fallback
+ * @returns {int}
+ */
+function asInt(value, defaultValue) {
+  defaultValue = defaultValue || 0;
+
+  var result = parseInt(value, 10);
+  if (isNaN(result)) {
+    return defaultValue;
+  }
+
+  return result;
 }

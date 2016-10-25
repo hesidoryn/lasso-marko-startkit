@@ -1,0 +1,41 @@
+
+.app-friends {
+  position: relative;
+
+  @keyframes fadeIn {
+    0%   { top: -10px; opacity: 0.5; }
+    100% { top: 0;     opacity: 1;  }
+  }
+
+  &__open {
+    animation: fadeIn 0.4s;
+  }
+
+  &__closed {
+    display: none;
+  }
+}
+
+.app-friends-show-more {
+  @color: #555555;
+  font-size: 16px;
+
+  &__link {
+    text-decoration: none;
+    border-bottom: 1px dotted @color;
+    color: @color;
+
+    &:hover {
+      color: lighten(@color, 20%);
+      border-color: lighten(@color, 20%);
+    }
+  }
+
+  &__indicator {
+    float: left;
+    width: 20px;
+    margin-left: -20px;
+    color: @color;
+  }
+}
+

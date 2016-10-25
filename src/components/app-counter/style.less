@@ -1,9 +1,15 @@
 .number-spinner button {
-  background-color: #b3f6fe;
+  background-color: #a9eaf2;
   border: 2px solid white;
   outline: 0;
   height: 30px;
   vertical-align: bottom;
+  border-radius: 3px;
+
+  &:active {
+    background-color: #a5e3ea;
+    color: white;
+  }
 }
 
 .number-spinner input {
@@ -14,12 +20,20 @@
   outline: 0;
   text-align: center;
   height: 26px;
+  border-radius: 3px;
+  color: #333333;
+  background-color: #b3f6fe;
+
+  &:focus {
+    color: black;
+    background-color: white;
+  }
 }
 
 .number-spinner.positive input {
-  background: #98ff98;
+  background: #b4ffbd;
 }
 
 .number-spinner.negative input {
-  background: #ff9292;
+  background: #ffd4cb;
 }
