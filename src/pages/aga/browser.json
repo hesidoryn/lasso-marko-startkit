@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    "src/layouts/base",
+    "./style.less",
+
+    "image1.jpg",
+    "image2.jpg",
+    "image3.jpg"
+  ]
+}

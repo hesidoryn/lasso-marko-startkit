@@ -22,3 +22,9 @@ $ npm start
 ```
 
 Open [http://localhost:8080]() with your browser.
+
+## Build
+
+    NODE_ENV=production node src/build.js
+    
+Assets will be generated in `build/static` folder
