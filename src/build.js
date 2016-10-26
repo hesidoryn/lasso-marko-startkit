@@ -1,43 +1,102 @@
 require('./configure');
 
-var path =   require('path');
-var async =  require('async');
-var lasso =  require('lasso');
+var async = require('async');
+var path = require('path');
+var lasso = require('lasso');
 
+// Specify any files that needs to be copied to assets folder (build/static)
+var files = [
+  'layouts/base/favicon.ico'
+];
+
+// Specify pages
 var pages = [
   "pages/test",
   "pages/aga",
   "pages/index"
 ];
 
-async.eachSeries(pages, function(page, callback) {
+process(files, pages);
 
-  var name = path.basename(page);
-  var packagePath = path.join(__dirname, page, "browser.json");
-  var from = path.join(__dirname, page);
 
-  lasso.lassoPage({
-      name: name,
-      packagePath: packagePath,
-      from: from
-    },
-    function(err, lassoPageResult) {
+// ---------------------------
+// Processing of files and pages
+// ---------------------------
+
+function process(files, pages) {
+  processFiles(files, function(err) {
+    if (err) {
+      throw err;
+    }
+
+    console.log('Files processed!');
+
+    processPages(pages, function(err) {
       if (err) {
-        console.log('Failed to lasso page: ', err);
+        throw err;
+      }
+
+      console.log('Build complete!');
+    })
+  });
+}
+
+function processFiles(files, callback) {
+  async.eachSeries(files, function(file, callback) {
+    lasso.lassoResource(path.join(__dirname, file), function(err, result) {
+      if (err) {
+        console.log('Failed to process file: ', err);
         callback(err);
         return;
       }
 
-      console.log('Page "' + page + '" processed.');
+      var url = result.url; // URL for the output resource
+      console.log('File "' + file + '" processed.');
       callback(null);
+    });
+
+  }, function(err) {
+    if (err) {
+      callback(err);
+      return;
     }
-  );
 
-}, function(err) {
-  if (err) {
-    throw err;
-  }
+    callback();
+  });
+}
 
-  console.log('Build complete!');
-});
+function processPages(pages, callback) {
+  async.eachSeries(pages, function(page, callback) {
+
+    var name = path.basename(page);
+    var packagePath = path.join(__dirname, page, "browser.json");
+    var from = path.join(__dirname, page);
+
+    lasso.lassoPage({
+        name: name,
+        packagePath: packagePath,
+        from: from
+      },
+      function(err, lassoPageResult) {
+        if (err) {
+          console.log('Failed to lasso page: ', err);
+          callback(err);
+          return;
+        }
+
+        console.log('Page "' + page + '" processed.');
+        callback(null);
+      }
+    );
+
+  }, function(err) {
+    if (err) {
+      callback(err);
+      return;
+    }
+
+    callback();
+  });
+}
+
 
