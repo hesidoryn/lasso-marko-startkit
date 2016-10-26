@@ -8,9 +8,9 @@
   "main": "src/server.js",
   "scripts": {
     "start": "./node_modules/.bin/browser-refresh src/server.js",
-    "marko-compile": "./node_modules/.bin/markoc .",
+    "marko": "./node_modules/.bin/markoc . --force",
     "marko-clean": "./node_modules/.bin/markoc . --clean",
-    "build": "node src/build.js"
+    "build": "NODE_ENV=production node src/build.js"
   },
 
   "dependencies": {

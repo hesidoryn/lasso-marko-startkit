@@ -25,6 +25,11 @@ Open [http://localhost:8080]() with your browser.
 
 ## Build
 
-    NODE_ENV=production node src/build.js
+Generate static assets in `build/static` folder:
+
+    npm run build
     
-Assets will be generated in `build/static` folder
+Compile all Marko templates:
+
+    npm run marko
+    
