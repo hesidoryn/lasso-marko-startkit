@@ -23,7 +23,11 @@ $ npm start
 
 Open [http://localhost:8080]() with your browser.
 
-## Build
+## Static assets
+
+All static assets (JS, CSS, SVG, images etc.) are automatically processed at runtime and
+copied to `build/static` folder. It helps when you are developing. But if you are ready
+to deploy, you can build all static assets and compile all Marko templates.
 
 Generate static assets in `build/static` folder:
 
