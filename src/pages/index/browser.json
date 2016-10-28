@@ -4,6 +4,7 @@
 
     "require: src/components/app-counter",
     "require: src/components/app-section",
+    "require: src/components/app-theme-loader",
 
     "require-run: ./client.js",
     "./style.less"

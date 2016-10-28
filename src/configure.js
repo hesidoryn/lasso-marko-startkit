@@ -54,7 +54,21 @@ require('lasso').configure({
   urlPrefix: '/static',
 
   // Only bundle up JS and CSS files in production builds
-  bundlingEnabled: production,
+  bundlingEnabled: true,
+  bundles: [
+    {
+      "name": "theme-black",
+      "dependencies": [
+        "src/components/app-theme-loader/theme-black/browser.json"
+      ]
+    },
+    {
+      "name": "theme-normal",
+      "dependencies": [
+        "src/components/app-theme-loader/theme-normal/browser.json"
+      ]
+    }
+  ],
 
   // Only minify JS and CSS files in production builds
   minify: production,
