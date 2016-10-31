@@ -1,16 +1,18 @@
 
 <div class="app-section-wrapper" w-bind>
 
-  <div class="app-section-show-more">
+  <div class="app-section-show-more ${data.moreClassName}">
     <div class="app-section-show-more__indicator">
       $!{data.linkIndicator}
     </div>
-    <div class="app-section-show-more__content">
+    <div>
       <a class="app-section-show-more__link" href="#" w-onclick="toggle">$!{data.linkTitle}</a>
     </div>
-
   </div>
+  <div style="clear:both;" />
 
-  <div class=data.className w-body />
+  <div class="app-section-content ${data.className}" style="height: ${data.height}" w-id="content">
+    <div class="app-section-content__wrapper" w-body w-id="contentWrapper" />
+  </div>
 
 </div>

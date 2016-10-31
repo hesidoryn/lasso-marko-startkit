@@ -1,6 +1,7 @@
 {
   "dependencies": [
     // Normilize.css (referenced from node_modules)
-    "normalize.css/normalize.css"
+    "normalize.css/normalize.css",
+    "require: jquery/dist/jquery.min.js"
   ]
 }

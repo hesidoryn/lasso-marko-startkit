@@ -1,29 +1,66 @@
 .app-section-wrapper {
-  margin-bottom: 16px;
+  margin-bottom: 6px;
 }
 
-.app-section {
+//.app-section {
+//  position: relative;
+//
+//  @keyframes fadeIn {
+//    0%   { top: -10px; opacity: 0.5; }
+//    100% { top: 0;     opacity: 1;  }
+//  }
+//
+//  &--open {
+//    animation: fadeIn 0.4s;
+//  }
+//
+//  &--closed {
+//    display: none;
+//  }
+//}
+
+.app-section-content {
+  transition:
+      height .3s ease-out,
+      top .4s ease-out,
+      opacity .3s ease-out;
+
+  overflow: hidden;
   position: relative;
 
-  @keyframes fadeIn {
-    0%   { top: -10px; opacity: 0.5; }
-    100% { top: 0;     opacity: 1;  }
+  &--closed {
+    top: -8px;
+    opacity: 0;
   }
 
   &--open {
-    animation: fadeIn 0.4s;
+    top: 0;
+    opacity: 1;
   }
 
-  &--closed {
-    display: none;
+  &__wrapper {
+
+    // Adding "overflow: auto" or "overflow: hidden" on the element will disable
+    // margin collapsing and the "element.clientHeight" will be correctly calculated
+    overflow: hidden;
   }
+
 }
 
 .app-section-show-more {
   @color: #555555;
+  @point-width: 25px;
+
   font-size: 16px;
+  margin-left: (-@point-width - 5px);
+  padding: 5px;
+  border-radius: 5px;
+  transition:
+      background-color .4s ease-out;
+      //color 7.4s ease-out;
 
   &__link {
+    transition: color .4s ease-out;
     text-decoration: none;
     border-bottom: 1px dotted @color;
     color: @color;
@@ -35,10 +72,28 @@
   }
 
   &__indicator {
+    transition: color .4s ease-out;
     float: left;
-    width: 20px;
-    margin-left: -20px;
+    width: @point-width;
     color: @color;
+  }
+
+  &--open {
+    background-color: fade(black, 30%);
+  }
+
+  &--open &__link,
+  &--open &__indicator {
+    color: white;
+    border-color: white;
+  }
+
+  &--open &__link:hover {
+    border-color: fade(white, 80%);
+  }
+
+  &--closed {
+    background-color: inherit;
   }
 }
 
