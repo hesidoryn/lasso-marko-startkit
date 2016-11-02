@@ -17,6 +17,10 @@ app.get('/', require('./pages/index'));
 app.get('/test', require('./pages/test'));
 app.get('/aga', require('./pages/aga'));
 
+app.get('/switcher', require('./pages/switcher/pages/index'));
+app.get('/switcher/about', require('./pages/switcher/pages/about'));
+app.get('/switcher/faq', require('./pages/switcher/pages/faq'));
+
 app.listen(port, function() {
   console.log('Listening on port %d', port);
 

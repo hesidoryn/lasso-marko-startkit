@@ -26,7 +26,8 @@
     "lasso-marko": "2.0.7",
     "marko": "3.11.8",
     "marko-widgets": "6.3.7",
-    "normalize.css": "5.0.0"
+    "normalize.css": "5.0.0",
+    "shortid": "2.2.6"
   },
 
   "devDependencies": {

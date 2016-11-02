@@ -57,6 +57,24 @@ require('lasso').configure({
   bundlingEnabled: true,
   bundles: [
     {
+      "name": "app-about",
+      "dependencies": [
+        "require: src/pages/switcher/components/app-about"
+      ]
+    },
+    {
+      "name": "app-index",
+      "dependencies": [
+        "require: src/pages/switcher/components/app-index"
+      ]
+    },
+    {
+      "name": "app-faq",
+      "dependencies": [
+        "require: src/pages/switcher/components/app-faq"
+      ]
+    },
+    {
       "name": "theme-black",
       "dependencies": [
         "src/components/app-theme-loader/theme-black/browser.json"

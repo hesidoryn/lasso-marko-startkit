@@ -1,0 +1,6 @@
+{
+  "dependencies": [
+    "src/pages/switcher/layouts/page",
+    "require: src/pages/switcher/components/app-faq"
+  ]
+}

@@ -1,0 +1,38 @@
+.content {
+  margin: 100px 15% 100px 15%;
+  padding: 100px 10% 100px 10%;
+  background-color: #b3f6fe;
+  font-weight: 200;
+  font-size: 18px;
+
+  h1 {
+    font-size: 50px;
+    font-weight: 100;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+}
+
+
+
+body {
+  .transition-property(@opacity-speed: 0.4s; @transform-speed: 0.5s) {
+    transition: opacity @opacity-speed ease-in, transform @transform-speed ease-out;
+  }
+  @opacity-to: 0.1;
+  @scale-to: 0.5;
+  position: relative;
+  .transition-property;
+
+  &.slowlyhide {
+    opacity: @opacity-to;
+    transform: scale(@scale-to);
+    .transition-property(7s, 7s);
+  }
+
+  &.hideme {
+    opacity: @opacity-to + 0.01;
+    transform: scale(@scale-to + 0.01);
+    .transition-property;
+  }
+}
