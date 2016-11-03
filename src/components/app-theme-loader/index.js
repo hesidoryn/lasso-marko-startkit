@@ -6,7 +6,6 @@ module.exports = require('marko-widgets').defineComponent({
   template: require('./template.marko'),
 
   loadBlack: function() {
-
     loader.async(function(err) {
       if (err) {
         console.log("Failed...");
@@ -15,19 +14,17 @@ module.exports = require('marko-widgets').defineComponent({
 
       require('./theme-black/client.js')();
     });
-
   },
 
   loadNormal: function() {
-
-    loader.async(
-      ['./theme-normal/browser.json'],
-      function() {
-        var client = require("./theme-normal/client.js");
-        client();
+    loader.async(function(err) {
+      if (err) {
+        console.log("Failed...");
+        return;
       }
-    );
 
+      require("./theme-normal/client.js")();
+    });
   }
 
 });
