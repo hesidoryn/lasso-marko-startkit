@@ -77,9 +77,9 @@ function urlToComponent(url) {
 
 function loadAsync(component, callback) {
   switch (component) {
-    case "app-index": require("lasso-loader").async(["require: ./components/app-index", "./utils/async.js"], callback); break;
-    case "app-about": require("lasso-loader").async(["require: ./components/app-about", "./utils/async.js"], callback); break;
-    case "app-faq": require("lasso-loader").async(["require: ./components/app-faq", "./utils/async.js"], callback); break;
+    case "app-index": require("lasso-loader").async(["require: ./components/app-index"], callback); break;
+    case "app-about": require("lasso-loader").async(["require: ./components/app-about"], callback); break;
+    case "app-faq": require("lasso-loader").async(["require: ./components/app-faq"], callback); break;
     default: throw "Invalid component name '" + component + "'";
   }
 }
