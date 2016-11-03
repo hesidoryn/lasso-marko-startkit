@@ -14,8 +14,6 @@ app.use(compression()); // Enable gzip compression for all HTTP responses
 app.use(require('lasso/middleware').serveStatic());
 
 app.get('/', require('./pages/index'));
-app.get('/test', require('./pages/test'));
-app.get('/aga', require('./pages/aga'));
 
 app.get('/switcher', require('./pages/switcher/pages/index'));
 app.get('/switcher/about', require('./pages/switcher/pages/about'));

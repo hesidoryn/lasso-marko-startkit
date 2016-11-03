@@ -11,9 +11,10 @@ var files = [
 
 // Specify pages
 var pages = [
-  "pages/test",
-  "pages/aga",
-  "pages/index"
+  "pages/index",
+  "pages/switcher/pages/index",
+  "pages/switcher/pages/about",
+  "pages/switcher/pages/faq"
 ];
 
 process(files, pages);
