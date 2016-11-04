@@ -7,7 +7,7 @@ module.exports = require('marko-widgets').defineComponent({
 
   linkClicked: function(e, el) {
     e.preventDefault();
-    require("../../client").clickLink(el.href);
+    require('../../client').clickLink(el.href);
   }
 });
 

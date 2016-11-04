@@ -21,9 +21,9 @@ var path = require('path');
 var fs = require('fs');
 
 exports.tag = {
-  "import-var": {
-    "dirname": "__dirname",
-    "filename": "__filename"
+  'import-var': {
+    'dirname': '__dirname',
+    'filename': '__filename'
   }
 };
 

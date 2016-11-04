@@ -1,17 +1,17 @@
 exports.addClass = function (node, newClass) {
-  var cls = node.getAttribute("class");
+  var cls = node.getAttribute('class');
   if (!cls) {
-    node.setAttribute("class", newClass);
+    node.setAttribute('class', newClass);
     return;
   }
 
   var list = cls.split(' ');
   list.push(newClass);
-  node.setAttribute("class", list.join(' '));
+  node.setAttribute('class', list.join(' '));
 };
 
 exports.removeClassesStartedWith = function (node, startsWith) {
-  var cls = node.getAttribute("class");
+  var cls = node.getAttribute('class');
   if (!cls) {
     return;
   }
@@ -27,5 +27,5 @@ exports.removeClassesStartedWith = function (node, startsWith) {
     }
   }
 
-  node.setAttribute("class", newList.join(' '));
+  node.setAttribute('class', newList.join(' '));
 };

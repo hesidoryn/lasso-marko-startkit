@@ -9,7 +9,7 @@
  * You can write this:
  *    var module = require('src/path/to/module')
  */
-require('app-module-path').addPath(__dirname + "/..");
+require('app-module-path').addPath(__dirname + '/..');
 
 /**
  * Marko provides a custom Node.js require extension that allows Marko templates
@@ -59,33 +59,33 @@ require('lasso').configure({
   bundlingEnabled: true,
   bundles: [
     {
-      "name": "app-about",
-      "dependencies": [
-        "require: src/pages/switcher/components/app-about"
+      'name': 'app-about',
+      'dependencies': [
+        'require: src/pages/switcher/components/app-about'
       ]
     },
     {
-      "name": "app-index",
-      "dependencies": [
-        "require: src/pages/switcher/components/app-index"
+      'name': 'app-index',
+      'dependencies': [
+        'require: src/pages/switcher/components/app-index'
       ]
     },
     {
-      "name": "app-faq",
-      "dependencies": [
-        "require: src/pages/switcher/components/app-faq"
+      'name': 'app-faq',
+      'dependencies': [
+        'require: src/pages/switcher/components/app-faq'
       ]
     },
     {
-      "name": "theme-black",
-      "dependencies": [
-        "require: src/components/app-theme-loader/theme-black"
+      'name': 'theme-black',
+      'dependencies': [
+        'require: src/components/app-theme-loader/theme-black'
       ]
     },
     {
-      "name": "theme-normal",
-      "dependencies": [
-        "require: src/components/app-theme-loader/theme-normal"
+      'name': 'theme-normal',
+      'dependencies': [
+        'require: src/components/app-theme-loader/theme-normal'
       ]
     }
   ],

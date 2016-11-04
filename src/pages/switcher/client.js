@@ -2,7 +2,7 @@ $ = require('jquery/dist/jquery.min.js');
 
 exports.clickLink = function(url) {
 
-  document.body.setAttribute("class", "slowlyhide");
+  document.body.setAttribute('class', 'slowlyhide');
 
   var widgetResult = null;
 
@@ -27,7 +27,7 @@ exports.clickLink = function(url) {
   function done() {
     if (widgetRendered && assetsLoaded && !timeoutPassed) {
 
-      document.body.setAttribute("class", "hideme");
+      document.body.setAttribute('class', 'hideme');
 
       setTimeout(function() {
         timeoutPassed = true;
@@ -38,7 +38,7 @@ exports.clickLink = function(url) {
 
 
     if (widgetRendered && assetsLoaded && timeoutPassed) {
-      document.body.setAttribute("class", "");
+      document.body.setAttribute('class', '');
       scroll(0, 0);
       initWidgets(widgetResult);
     }
@@ -54,7 +54,7 @@ function initWidgets(widget) {
 }
 
 function loadWidgetOutput(url, callback) {
-  $.getJSON(url + "?preload", function(result) {
+  $.getJSON(url + '?preload', function(result) {
     callback(null, result);
   });
 }
@@ -66,20 +66,20 @@ function loadWidgetAssets(url, callback) {
 }
 
 function urlToComponent(url) {
-  if (url.endsWith("/switcher")) {
-    return "app-index";
-  } else if (url.endsWith("/switcher/about")) {
-    return "app-about";
-  } else if (url.endsWith("/switcher/faq")) {
-    return "app-faq";
+  if (url.endsWith('/switcher')) {
+    return 'app-index';
+  } else if (url.endsWith('/switcher/about')) {
+    return 'app-about';
+  } else if (url.endsWith('/switcher/faq')) {
+    return 'app-faq';
   }
 }
 
 function loadAsync(component, callback) {
   switch (component) {
-    case "app-index": require("lasso-loader").async(["require: ./components/app-index"], callback); break;
-    case "app-about": require("lasso-loader").async(["require: ./components/app-about"], callback); break;
-    case "app-faq": require("lasso-loader").async(["require: ./components/app-faq"], callback); break;
-    default: throw "Invalid component name '" + component + "'";
+    case 'app-index': require('lasso-loader').async(['require: ./components/app-index'], callback); break;
+    case 'app-about': require('lasso-loader').async(['require: ./components/app-about'], callback); break;
+    case 'app-faq': require('lasso-loader').async(['require: ./components/app-faq'], callback); break;
+    default: throw 'Invalid component name "' + component + '"';
   }
 }

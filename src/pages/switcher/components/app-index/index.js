@@ -10,16 +10,15 @@ module.exports = require('marko-widgets').defineComponent({
   },
 
   init: function() {
-    console.log("init");
-
+    console.log('init');
   },
 
   onBeforeDestroy: function() {
-    console.log("onBeforeDestroy");
+    console.log('onBeforeDestroy');
   },
 
   onDestroy: function() {
-    console.log("onDestroy");
+    console.log('onDestroy');
   }
 
 });

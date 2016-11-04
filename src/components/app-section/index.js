@@ -6,9 +6,9 @@ module.exports = require('marko-widgets').defineComponent({
   getInitialState: function(input) {
     return {
       open: input.open === undefined ? false : input.open,
-      textShow: input.textShow || "Show",
-      textHide: input.textHide || "Hide",
-      height: input.open == true ? "auto" : "0"
+      textShow: input.textShow || 'Show',
+      textHide: input.textHide || 'Hide',
+      height: input.open == true ? 'auto' : '0'
     };
   },
 
@@ -16,9 +16,9 @@ module.exports = require('marko-widgets').defineComponent({
     return {
       open: state.open,
       className: className(state.open),
-      moreClassName: state.open ? "app-section-show-more--open" : "app-section-show-more--closed",
+      moreClassName: state.open ? 'app-section-show-more--open' : 'app-section-show-more--closed',
       linkTitle: state.textShow,
-      linkIndicator: state.open ? "&rarr;" : "&rarr;",
+      linkIndicator: state.open ? '&rarr;' : '&rarr;',
       height: state.height
     };
   },
@@ -30,19 +30,19 @@ module.exports = require('marko-widgets').defineComponent({
     this.setState('open', newOpen);
 
     if (!newOpen) {
-      this.setState('height', "0");
+      this.setState('height', '0');
     } else {
-      var content = this.getEl("content");
-      var contentWrapper = this.getEl("contentWrapper");
-      this.setState('height', contentWrapper.clientHeight + "px");
+      var content = this.getEl('content');
+      var contentWrapper = this.getEl('contentWrapper');
+      this.setState('height', contentWrapper.clientHeight + 'px');
     }
   },
 
   init: function() {
     if (this.state.open) {
-      var content = this.getEl("content");
-      var contentWrapper = this.getEl("contentWrapper");
-      this.setState('height', contentWrapper.clientHeight + "px");
+      var content = this.getEl('content');
+      var contentWrapper = this.getEl('contentWrapper');
+      this.setState('height', contentWrapper.clientHeight + 'px');
     }
   }
 });

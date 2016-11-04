@@ -1,6 +1,6 @@
 require('./style.less');
 
-var loader = require("lasso-loader");
+var loader = require('lasso-loader');
 
 module.exports = require('marko-widgets').defineComponent({
   template: require('./template.marko'),
@@ -8,7 +8,7 @@ module.exports = require('marko-widgets').defineComponent({
   loadBlack: function() {
     loader.async(function(err) {
       if (err) {
-        console.log("Failed...");
+        console.log('Failed...');
         return;
       }
 
@@ -19,11 +19,11 @@ module.exports = require('marko-widgets').defineComponent({
   loadNormal: function() {
     loader.async(function(err) {
       if (err) {
-        console.log("Failed...");
+        console.log('Failed...');
         return;
       }
 
-      require("./theme-normal")();
+      require('./theme-normal')();
     });
   }
 

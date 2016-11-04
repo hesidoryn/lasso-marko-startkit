@@ -11,10 +11,10 @@ var files = [
 
 // Specify pages
 var pages = [
-  "pages/index",
-  "pages/switcher/pages/index",
-  "pages/switcher/pages/about",
-  "pages/switcher/pages/faq"
+  'pages/index',
+  'pages/switcher/pages/index',
+  'pages/switcher/pages/about',
+  'pages/switcher/pages/faq'
 ];
 
 process(files, pages);
@@ -70,7 +70,7 @@ function processPages(pages, callback) {
   async.eachSeries(pages, function(page, callback) {
 
     var from = path.join(__dirname, page);
-    var pagePath = path.join(from, "page.json");
+    var pagePath = path.join(from, 'page.json');
 
     var config = {};
     if (require('fs').existsSync(pagePath)) {
@@ -85,12 +85,12 @@ function processPages(pages, callback) {
 
     if (!config.packagePath) {
       // Look for an browser.json in the same directory
-      config.packagePath = path.join(from, "browser.json");
+      config.packagePath = path.join(from, 'browser.json');
     }
 
     if (!config.cacheKey) {
       // Filename of the compiled template is the default cache key
-      config.cacheKey = path.join(from, "template.marko.js");
+      config.cacheKey = path.join(from, 'template.marko.js');
     }
 
     lasso.lassoPage(config,

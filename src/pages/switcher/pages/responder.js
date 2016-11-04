@@ -2,7 +2,7 @@ var markoWidgets = require('marko-widgets');
 
 function extendViewData(viewdata) {
   // To avoid duplicate IDs we need to provide Marko Widget with a unique ID prefix
-  var idprefix = 'w' + require("shortid").generate();
+  var idprefix = 'w' + require('shortid').generate();
   if (viewdata.$global != null) {
     viewdata.$global.widgetIdPrefix = idprefix;
   } else {
