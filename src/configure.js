@@ -37,8 +37,8 @@ require('marko/node-require').install();
  */
 require('lasso/node-require-no-op').enable('.less', '.css');
 
-
 var production = (process.env.NODE_ENV === 'production');
+var cacheProfile = production ? 'production' : 'development';
 
 // Configure the Lasso.js
 require('lasso').configure({
@@ -46,6 +46,8 @@ require('lasso').configure({
     'lasso-marko',  // Auto compile Marko template files
     'lasso-less'    // Add support for Less files
   ],
+
+  cacheProfile: cacheProfile,
 
   // Directory where generated JS and CSS bundles are written
   outputDir: require('path').join(__dirname, '../build/static'),

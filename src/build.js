@@ -89,8 +89,8 @@ function processPages(pages, callback) {
     }
 
     if (!config.cacheKey) {
-      // Filename of the template is the default cache key
-      config.cacheKey = path.join(from, "template.marko");
+      // Filename of the compiled template is the default cache key
+      config.cacheKey = path.join(from, "template.marko.js");
     }
 
     lasso.lassoPage(config,
