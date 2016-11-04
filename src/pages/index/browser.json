@@ -1,6 +1,6 @@
 {
   "dependencies": [
-    "src/layouts/base",
+    "require: src/layouts/base",
 
     "require: src/components/app-counter",
     "require: src/components/app-section",
