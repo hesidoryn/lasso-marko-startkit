@@ -12,7 +12,7 @@ module.exports = require('marko-widgets').defineComponent({
         return;
       }
 
-      require('./theme-black/client.js')();
+      require('./theme-black')();
     });
   },
 
@@ -23,7 +23,7 @@ module.exports = require('marko-widgets').defineComponent({
         return;
       }
 
-      require("./theme-normal/client.js")();
+      require("./theme-normal")();
     });
   }
 

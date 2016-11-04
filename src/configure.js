@@ -79,13 +79,13 @@ require('lasso').configure({
     {
       "name": "theme-black",
       "dependencies": [
-        "src/components/app-theme-loader/theme-black/browser.json"
+        "require: src/components/app-theme-loader/theme-black"
       ]
     },
     {
       "name": "theme-normal",
       "dependencies": [
-        "src/components/app-theme-loader/theme-normal/browser.json"
+        "require: src/components/app-theme-loader/theme-normal"
       ]
     }
   ],
