@@ -69,15 +69,31 @@ function processFiles(files, callback) {
 function processPages(pages, callback) {
   async.eachSeries(pages, function(page, callback) {
 
-    var name = path.basename(page);
-    var packagePath = path.join(__dirname, page, "browser.json");
     var from = path.join(__dirname, page);
+    var pagePath = path.join(from, "page.json");
 
-    lasso.lassoPage({
-        name: name,
-        packagePath: packagePath,
-        from: from
-      },
+    var config = {};
+    if (require('fs').existsSync(pagePath)) {
+      config = require(pagePath);
+    }
+
+    config.from = from;
+
+    if (!config.name) {
+      config.name = path.basename(page);
+    }
+
+    if (!config.packagePath) {
+      // Look for an browser.json in the same directory
+      config.packagePath = path.join(from, "browser.json");
+    }
+
+    if (!config.cacheKey) {
+      // Filename of the template is the default cache key
+      config.cacheKey = path.join(from, "template.marko");
+    }
+
+    lasso.lassoPage(config,
       function(err, lassoPageResult) {
         if (err) {
           console.log('Failed to lasso page: ', err);
