@@ -1,24 +1,16 @@
 module.exports = require('marko-widgets').defineComponent({
   template: require('./template.marko'),
 
-  getInitialState: function(input) {
-    return { };
-  },
-
-  getTemplateData: function(state) {
-    return { };
-  },
-
   init: function() {
-    console.log('init');
+    console.log('init'); // eslint-disable-line no-console
   },
 
   onBeforeDestroy: function() {
-    console.log('onBeforeDestroy');
+    console.log('onBeforeDestroy'); // eslint-disable-line no-console
   },
 
   onDestroy: function() {
-    console.log('onDestroy');
+    console.log('onDestroy'); // eslint-disable-line no-console
   }
 
 });

@@ -32,7 +32,6 @@ module.exports = require('marko-widgets').defineComponent({
     if (!newOpen) {
       this.setState('height', '0');
     } else {
-      var content = this.getEl('content');
       var contentWrapper = this.getEl('contentWrapper');
       this.setState('height', contentWrapper.clientHeight + 'px');
     }
@@ -40,7 +39,6 @@ module.exports = require('marko-widgets').defineComponent({
 
   init: function() {
     if (this.state.open) {
-      var content = this.getEl('content');
       var contentWrapper = this.getEl('contentWrapper');
       this.setState('height', contentWrapper.clientHeight + 'px');
     }

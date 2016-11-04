@@ -1,4 +1,4 @@
-$ = require('jquery/dist/jquery.min.js');
+var $ = require('jquery/dist/jquery.min.js');
 
 exports.clickLink = function(url) {
 
@@ -10,10 +10,7 @@ exports.clickLink = function(url) {
   var assetsLoaded = false;
   var timeoutPassed = false;
 
-
-
-
-  loadWidgetAssets(url, function (err) {
+  loadWidgetAssets(url, function (/* err */) {
     assetsLoaded = true;
     done();
   });
@@ -77,9 +74,9 @@ function urlToComponent(url) {
 
 function loadAsync(component, callback) {
   switch (component) {
-    case 'app-index': require('lasso-loader').async(['require: ./components/app-index'], callback); break;
-    case 'app-about': require('lasso-loader').async(['require: ./components/app-about'], callback); break;
-    case 'app-faq': require('lasso-loader').async(['require: ./components/app-faq'], callback); break;
-    default: throw 'Invalid component name "' + component + '"';
+  case 'app-index': require('lasso-loader').async(['require: ./components/app-index'], callback); break;
+  case 'app-about': require('lasso-loader').async(['require: ./components/app-about'], callback); break;
+  case 'app-faq': require('lasso-loader').async(['require: ./components/app-faq'], callback); break;
+  default: throw 'Invalid component name "' + component + '"';
   }
 }

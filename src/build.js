@@ -1,3 +1,5 @@
+/* eslint no-console: 0 */
+
 require('./configure');
 
 var async = require('async');
@@ -38,20 +40,19 @@ function process(files, pages) {
       }
 
       console.log('Build complete!');
-    })
+    });
   });
 }
 
 function processFiles(files, callback) {
   async.eachSeries(files, function(file, callback) {
-    lasso.lassoResource(path.join(__dirname, file), function(err, result) {
+    lasso.lassoResource(path.join(__dirname, file), function(err) {
       if (err) {
         console.log('Failed to process file: ', err);
         callback(err);
         return;
       }
 
-      var url = result.url; // URL for the output resource
       console.log('File "' + file + '" processed.');
       callback(null);
     });
@@ -94,7 +95,7 @@ function processPages(pages, callback) {
     }
 
     lasso.lassoPage(config,
-      function(err, lassoPageResult) {
+      function(err) {
         if (err) {
           console.log('Failed to lasso page: ', err);
           callback(err);

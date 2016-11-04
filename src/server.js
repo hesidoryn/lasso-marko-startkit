@@ -20,7 +20,7 @@ app.get('/switcher/about', require('./pages/switcher/pages/about'));
 app.get('/switcher/faq', require('./pages/switcher/pages/faq'));
 
 app.listen(port, function() {
-  console.log('Listening on port %d', port);
+  console.log('Listening on port %d', port);  // eslint-disable-line no-console
 
   // This is how we communicate to "browser-refresh"
   // that application is ready to start serving traffic:

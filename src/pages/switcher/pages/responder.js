@@ -6,7 +6,7 @@ function extendViewData(viewdata) {
   if (viewdata.$global != null) {
     viewdata.$global.widgetIdPrefix = idprefix;
   } else {
-    viewdata.$global = { widgetIdPrefix: idprefix }
+    viewdata.$global = { widgetIdPrefix: idprefix };
   }
 
   return viewdata;

@@ -8,7 +8,6 @@ module.exports = require('marko-widgets').defineComponent({
   loadBlack: function() {
     loader.async(function(err) {
       if (err) {
-        console.log('Failed...');
         return;
       }
 
@@ -19,7 +18,6 @@ module.exports = require('marko-widgets').defineComponent({
   loadNormal: function() {
     loader.async(function(err) {
       if (err) {
-        console.log('Failed...');
         return;
       }
 
