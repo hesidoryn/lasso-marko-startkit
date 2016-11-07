@@ -1,5 +1,3 @@
-/* eslint no-console: 0 */
-
 require('./configure');
 
 // Enable logging for 'lasso-marko-extras'
