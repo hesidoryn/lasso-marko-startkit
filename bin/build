@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# This script performs all preparations to make this site
+# ready for production deployment. You can run this script from
+# any folder, but usually it runs from the root project directory:
+#
+#    $ bin/build
+#
+# The following operations are performed:
+#
+# 1. It cleanups ".cache" and "build" folders in order to start
+#    from clean page.
+#
+# 2. It recompiles all Marko templates (unconditionally)
+#
+# 3. It builds, minifies, fingerprints and move all static assets
+#    to /build/static folder.
+#
+
+BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"       # Get directory of this file
+PROJECT_DIR=$(dirname $BIN_DIR)                                   # Get root directory of project
+
+cd $PROJECT_DIR
+
+# 1. Remove ".cache" and "build" directories
+rm -rf .cache build
+if [ $? -eq 0 ]
+then
+  echo "Successfully removed cache and build folders."
+else
+  echo "Could not remove '.cache' and/or 'build' folders." >&2
+  exit 1
+fi
+
+# 2. Recompile all Marko templates
+node_modules/.bin/markoc . --force
+if [ $? -eq 0 ]
+then
+  echo "Successfully compiled Marko templates."
+else
+  echo "Could not compile Marko templates." >&2
+  exit 1
+fi
+
+# 3. Build static assets
+NODE_ENV=production node src/build.js
+if [ $? -eq 0 ]
+then
+  echo "Successfully built static assets."
+else
+  echo "Could not build static assets." >&2
+  exit 1
+fi
+
+echo "---------"
+echo "| Done! |"
+echo "---------"
