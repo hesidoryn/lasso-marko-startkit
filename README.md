@@ -1,5 +1,7 @@
 #  Lasso + Marko Startkit
 
+<img src="/docs/page.png?raw=true" width=600>
+
 <a href="https://github.com/lasso-js/lasso">Lasso</a> &mdash; is an eBay open source 
 Node.js-style JavaScript module bundler that also provides first-level support for optimally 
 delivering JavaScript, CSS, images and other assets to the browser.
