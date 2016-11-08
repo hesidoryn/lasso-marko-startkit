@@ -8,9 +8,12 @@
 #
 # The following operations are performed:
 #
-# 1. It recompiles all Marko templates (unconditionally)
+# 1. It cleanups ".cache" and "build" folders in order to start
+#    from clean page.
 #
-# 2. It builds, minifies, fingerprints and move all static assets
+# 2. It recompiles all Marko templates
+#
+# 3. It builds, minifies, fingerprints and move all static assets
 #    to /build/static folder.
 #
 
@@ -19,26 +22,4 @@ PROJECT_DIR=$(dirname $BIN_DIR)                                   # Get root dir
 
 cd $PROJECT_DIR
 
-# 1. Recompile all Marko templates
-node_modules/.bin/markoc . --force
-if [ $? -eq 0 ]
-then
-  echo "Successfully compiled Marko templates."
-else
-  echo "Could not compile Marko templates." >&2
-  exit 1
-fi
-
-# 2. Build static assets
 NODE_ENV=production node src/build.js
-if [ $? -eq 0 ]
-then
-  echo "Successfully built static assets."
-else
-  echo "Could not build static assets." >&2
-  exit 1
-fi
-
-echo "---------"
-echo "| Done! |"
-echo "---------"
