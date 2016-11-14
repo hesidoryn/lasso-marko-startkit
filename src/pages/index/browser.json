@@ -2,6 +2,7 @@
   "dependencies": [
     "require: src/layouts/base",
 
+    "require: src/components/app-calculator",
     "require: src/components/app-counter",
     "require: src/components/app-section",
     "require: src/components/app-theme-loader",

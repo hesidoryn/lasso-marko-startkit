@@ -1,0 +1,29 @@
+<div w-bind>
+  <p>${data.name}</p>
+  <div class="calculator__display">
+    <span id="first">${data.first}</span>
+    <span id="action">${data.action}</span>
+    <span id="second">${data.second}</span>
+    <span>${data.equal}</span>
+    <span id="result">${data.result}</span>
+  </div>
+  <div class="calculator__numerals">
+    <button type="button" w-onclick="set">1</button>
+    <button type="button" w-onclick="set">2</button>
+    <button type="button" w-onclick="set">3</button>
+    <button type="button" w-onclick="set">4</button>
+    <button type="button" w-onclick="set">5</button>
+    <button type="button" w-onclick="set">6</button>
+    <button type="button" w-onclick="set">7</button>
+    <button type="button" w-onclick="set">8</button>
+    <button type="button" w-onclick="set">9</button>
+    <button type="button" w-onclick="set">0</button>
+  </div>
+  <div class="calculator__buttons">
+    <button type="button" w-onclick="setAction">+</button>
+    <button type="button" w-onclick="setAction">-</button>
+    <button type="button" w-onclick="setAction">*</button>
+    <button type="button" w-onclick="setAction">/</button>
+    <button type="button" w-onclick="setAction">=</button>
+  </div>
+</div>
