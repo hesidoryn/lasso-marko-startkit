@@ -8,17 +8,15 @@ module.exports = require('marko-widgets').defineComponent({
       first: '',
       action: '',
       second: '',
+      expression: '',
       error: '',
       wand: true
     };
   },
 
   getTemplateData: function(state) {
-    this.wandAction;
     return {
-      first: state.first,
-      action: state.action,
-      second: state.second,
+      expression: state.expression,
       error: state.error,
       wand: state.wand
     };
@@ -37,11 +35,14 @@ module.exports = require('marko-widgets').defineComponent({
       this.setState('error', '');
     }
     if (this.state.action === '') {
-      var first = this.state.first.toString() + e.target.value;
+      const first = this.state.first.toString() + e.target.value;
       this.setState('first', first);
+      this.setState('expression', first);
     } else {
-      var second = this.state.second.toString() + e.target.value;
+      const second = this.state.second.toString() + e.target.value;
       this.setState('second', second);
+      const newExpression = `${this.state.first}${this.state.action}${this.state.second}`;
+      this.setState('expression', newExpression);
     }
   },
 
@@ -50,10 +51,12 @@ module.exports = require('marko-widgets').defineComponent({
       this.setState('error', '');
     }
     this.setState('action', e.target.value);
+    const newExpression = `${this.state.first}${this.state.action}`;
+    this.setState('expression', newExpression);
   },
 
   getResult: function() {
-    if (this.state.second === '') {
+    if (this.state.second === '' && this.state.action !== '') {
       this.setState('error', 'Malformed expression');
     } else {
       try {
@@ -62,6 +65,7 @@ module.exports = require('marko-widgets').defineComponent({
           this.setState('action', '');
           this.setState('second', '');
           this.setState('first', result);
+          this.setState('expression', result.toString());
         } else {
           this.setState('error', 'Malformed expression');
         }
@@ -75,6 +79,7 @@ module.exports = require('marko-widgets').defineComponent({
     this.setState('first', '');
     this.setState('action', '');
     this.setState('second', '');
+    this.setState('expression', '');
     this.setState('error', '');
   },
 });

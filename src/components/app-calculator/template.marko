@@ -1,9 +1,7 @@
 <div class="calculator" w-bind>
   <div class="calculator__display">
     <div class="expression">
-      <span id="first">${data.first}</span>
-      <span id="action">${data.action}</span>
-      <span id="second">${data.second}</span>
+      <span>${data.expression.substr(-22)}</span>
       <span class=(data.wand ? 'wand-active':'wand-inactive')>|</span>
     </div>
     <div class="error">
