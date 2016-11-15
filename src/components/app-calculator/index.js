@@ -16,7 +16,7 @@ module.exports = require('marko-widgets').defineComponent({
 
   getTemplateData: function(state) {
     return {
-      expression: state.expression,
+      expression: state.expression.substr(-22),
       error: state.error,
       wand: state.wand
     };
@@ -50,6 +50,11 @@ module.exports = require('marko-widgets').defineComponent({
     if (this.state.error !== '') {
       this.setState('error', '');
     }
+
+    if (this.state.second !== '') {
+      this.calculate();
+    }
+
     this.setState('action', e.target.value);
     const newExpression = `${this.state.first}${this.state.action}`;
     this.setState('expression', newExpression);
@@ -59,19 +64,23 @@ module.exports = require('marko-widgets').defineComponent({
     if (this.state.second === '' && this.state.action !== '') {
       this.setState('error', 'Malformed expression');
     } else {
-      try {
-        const result = eval(`${this.state.first}${this.state.action}${this.state.second}`);
-        if (typeof result === 'number' && isFinite(result)) {
-          this.setState('action', '');
-          this.setState('second', '');
-          this.setState('first', result);
-          this.setState('expression', result.toString());
-        } else {
-          this.setState('error', 'Malformed expression');
-        }
-      } catch (err) {
+      this.calculate();
+    }
+  },
+
+  calculate: function() {
+    try {
+      const result = eval(`${this.state.first}${this.state.action}${this.state.second}`);
+      if (typeof result === 'number' && isFinite(result)) {
+        this.setState('action', '');
+        this.setState('second', '');
+        this.setState('first', result);
+        this.setState('expression', result.toString());
+      } else {
         this.setState('error', 'Malformed expression');
       }
+    } catch (err) {
+      this.setState('error', 'Malformed expression');
     }
   },
 
