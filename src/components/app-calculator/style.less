@@ -1,5 +1,5 @@
 .calculator {
-  width: 300px;
+  width: 241px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -36,6 +36,10 @@
     button {
       font-size: 16px;
       border-radius: 3px;
+      background: transparent;
+      padding: 5px 0;
+      margin: 3px 0 3px 3px;
+      border: 1px solid #333;
 
       &:hover {
         cursor: pointer;
@@ -46,19 +50,15 @@
     }
 
     .numeral {
-      background: transparent;
       width: 57px;
-      padding: 5px 0;
-      margin: 3px 0 3px 3px;
-      border: 1px solid #333;
     }
 
     .action {
-      background: transparent;
       width: 55px;
-      padding: 5px 0;
-      margin: 3px 0 3px 3px;
-      border: 1px solid #333;
+    }
+
+    .result {
+      width: 233px;
     }
   }
 }

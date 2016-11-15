@@ -1,7 +1,7 @@
 <div class="calculator" w-bind>
   <div class="calculator__display">
     <div class="expression">
-      <span>${data.expression.substr(-22)}</span>
+      <span>${data.expression}</span>
       <span class=(data.wand ? 'wand-active':'wand-inactive')>|</span>
     </div>
     <div class="error">
@@ -13,18 +13,18 @@
     <button class="numeral" type="button" w-onclick="set" value=2>2</button>
     <button class="numeral" type="button" w-onclick="set" value=3>3</button>
     <button class="action" type="button" w-onclick="setAction" value="+">+</button>
-    <button class="action" type="button" w-onclick="setAction" value="-">-</button>
     <button class="numeral" type="button" w-onclick="set" value=4>4</button>
     <button class="numeral" type="button" w-onclick="set" value=5>5</button>
     <button class="numeral" type="button" w-onclick="set" value=6>6</button>
-    <button class="action" type="button" w-onclick="setAction" value="/">/</button>
-    <button class="action" type="button" w-onclick="setAction" value="*">*</button>
+    <button class="action" type="button" w-onclick="setAction" value="-">-</button>
     <button class="numeral" type="button" w-onclick="set" value=7>7</button>
     <button class="numeral" type="button" w-onclick="set" value=8>8</button>
     <button class="numeral" type="button" w-onclick="set" value=9>9</button>
-    <button class="action" type="button" w-onclick="clear">C</button>
-    <button class="action" type="button" w-onclick="getResult">=</button>
-    <button class="numeral" type="button" w-onclick="set" value=0>0</button>
+    <button class="action" type="button" w-onclick="setAction" value="*">*</button>
     <button class="numeral" type="button" w-onclick="set" value=".">.</button>
+    <button class="numeral" type="button" w-onclick="set" value=0>0</button>
+    <button class="action" type="button" w-onclick="clear">C</button>
+    <button class="action" type="button" w-onclick="setAction" value="/">/</button>
+    <button class="result" type="button" w-onclick="getResult">=</button>
   </div>
 </div>
