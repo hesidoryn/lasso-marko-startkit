@@ -1,6 +1,6 @@
 var $ = require('jquery/dist/jquery.min.js');
 
-exports.clickLink = function(url) {
+exports.clickLink = function(url, flag) {
 
   document.body.setAttribute('class', 'slowlyhide');
 
@@ -20,6 +20,11 @@ exports.clickLink = function(url) {
     widgetRendered = true;
     done();
   });
+
+  if (!flag) {
+    var name = url.split('/').pop();
+    window.history.pushState({'name': name}, name, url);
+  }
 
   function done() {
     if (widgetRendered && assetsLoaded && !timeoutPassed) {
