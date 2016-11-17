@@ -46,5 +46,4 @@ command. Static assets will be generated in `build/static` folder:
 If you want to recompile just all Marko templates, use the following command:
 
     npm run marko
-    
-Webhook test
+   
