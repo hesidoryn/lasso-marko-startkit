@@ -1,4 +1,4 @@
-#  Lasso + Marko Startkit webhook
+#  Lasso + Marko Startkit
 
 <img src="/docs/page.png?raw=true" width=600>
 
